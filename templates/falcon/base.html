@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+
+  <head>
+    <!-- head-->
+    {% include 'falcon/header.html '%}
+    <!-- head end-->
+  </head>
+
+
+  <body>
+
+    <main class="main" id="top">
+      <div class="container" data-layout="container">
+        <script>
+          var isFluid = JSON.parse(localStorage.getItem('isFluid'));
+          if (isFluid) {
+            var container = document.querySelector('[data-layout]');
+            container.classList.remove('container');
+            container.classList.add('container-fluid');
+          }
+        </script>
+
+        
+      <!-- menu -->
+      {% include 'falcon/menu.html '%}
+      <!-- menu end -->
+
+        <div class="content">
+
+
+          <!-- navbar -->
+          {% include 'falcon/navbar.html '%}
+          <!-- navbar end -->
+
+
+
+          {% block content %}
+          
+          {% endblock %}
+
+          <!-- footer -->
+          {% include 'falcon/footer.html '%}
+          <!-- footer end -->
+   
+        </div>
+
+
+      </div>
+      
+    </main>
+
+  
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="{% static 'falcon/public/vendors/popper/popper.min.js'%}"></script>
+    <script src="{% static 'falcon/public/vendors/bootstrap/bootstrap.min.js'%}"></script>
+    <script src="{% static 'falcon/public/vendors/anchorjs/anchor.min.js'%}"></script>
+    <script src="{% static 'falcon/public/vendors/is/is.min.js'%}"></script>
+    {% comment %} <script src="{% static 'falcon/public/vendors/echarts/echarts.min.js'%}"></script> {% endcomment %}
+    <script src="{% static 'falcon/public/vendors/fontawesome/all.min.js'%}"></script>
+    <script src="{% static 'falcon/public/vendors/lodash/lodash.min.js'%}"></script>
+    {% comment %} <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script> {% endcomment %}
+    {% comment %} <script src="{% static 'falcon/public/vendors/list.js/list.min.js'%}"></script> {% endcomment %}
+    <script src="{% static 'falcon/public/assets/js/theme.js'%}"></script>
+
+  </body>
+
+</html>
